@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Comment from "./components/Comment"
+import FormNewcomment from "./components/FormNewcomment"
 
 /*using class to learn how to use State in ReactJs instead using hooks with functions*/
 class App extends React.Component {
@@ -26,22 +27,73 @@ class App extends React.Component {
         message: 'Eu amo Thiago banquelho'
       },
     ],
+    form: {
+      name:"",
+      email:"",
+      message:"",
+
+    }
   };
 
 
 
-addComment = () => {
+addComment = (event) => {
+  event.preventDefault();
   alert('adicionando comentário')
   const newComment = {
-    name:"pessoa XXX",
-    email: 'xxxx@gmail.com',
+    name:this.state.form.name,
+    email: this.state.form.email,
     date: new Date(),
-    message: 'hue hue BR',
+    message: this.state.form.message,
 
   }
 
   this.setState({
-    comments: [...this.state.comments, newComment]
+    comments: [...this.state.comments, newComment],
+    form:{
+      name:"",
+      email:"",
+      message:"",
+    }
+  })
+}
+
+onChangeEmail = (event) => {
+  
+  const emailChanged =event.target.value;
+  
+    this.setState({
+      form:{
+        ...this.state.form, 
+        email:emailChanged
+      }
+      
+    })
+  
+  
+}
+
+onChangeMessage = (event) => {
+  
+  const messageChanged =event.target.value;
+  
+  this.setState({
+    form:{
+      ...this.state.form, 
+    message: messageChanged,
+    }
+    
+  })
+}
+
+onChangeName = (event) => {
+  
+  const nameChanged =event.target.value;
+  this.setState({
+    form: {
+      ...this.state.form,
+      name: nameChanged,
+    }
   })
 }
 
@@ -50,7 +102,8 @@ addComment = () => {
 
     return (
       <div className="App flex flex-col justify-center items-center mt-10 gap-10">
-        <h1 className="text-slate-200 font-light">Comments App!</h1>
+        <h1 className="text-primary-color text-2xl font-light">Comments App!</h1>
+        
         {this.state.comments.map((comment, index) =>{
           return (
             <Comment 
@@ -61,8 +114,18 @@ addComment = () => {
               message ={comment.message}
             />
           )
+        
         }) }
-        <button onClick={this.addComment} className="w-1/4 py-2 bg-slate-200 rounded-md">Add Comment</button>
+        <FormNewcomment
+        onChangeName = {this.onChangeName}
+        onChangeEmail = {this.onChangeEmail}
+        onChangeMessage = {this.onChangeMessage}
+
+        onSubmit = {this.addComment}
+
+        />
+
+        
         
   
       </div>
