@@ -8,24 +8,8 @@ class App extends React.Component {
 
   state = {
     comments: [
-      {
-        name:'Thiago Borges Miranda',
-        email:'thiagomag94@gmail.com',
-        date: new Date(),
-        message: 'pepeta me dá o fuvaco'
-      },
-      {
-        name:'Lucas Borges Miranda',
-        email:'lugomag94@gmail.com',
-        date: new Date(),
-        message: 'Quero ser pra você a lua iluminando o sol'
-      },
-      {
-        name:'Jessica Laís de Almeida Neves',
-        email:'lais@gmail.com',
-        date: new Date(),
-        message: 'Eu amo Thiago banquelho'
-      },
+      
+      
     ],
     form: {
       name:"",
@@ -56,6 +40,15 @@ addComment = (event) => {
       message:"",
     }
   })
+}
+
+DeleteComment = (comment) =>{
+  console.log(comment)
+  const newFilteredList = this.state.comments.filter(filteredComment => filteredComment !== comment)
+  this.setState({
+    comments: newFilteredList
+  })
+  console.log(newFilteredList)
 }
 
 onChangeEmail = (event) => {
@@ -112,6 +105,7 @@ onChangeName = (event) => {
               email={comment.email}
               date={comment.date}
               message ={comment.message}
+              onDeleteComment = {() => {this.DeleteComment(comment)}}
             />
           )
         
@@ -122,6 +116,7 @@ onChangeName = (event) => {
         onChangeMessage = {this.onChangeMessage}
 
         onSubmit = {this.addComment}
+        
 
         />
 
