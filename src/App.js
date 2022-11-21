@@ -1,131 +1,84 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Comment from "./components/Comment"
 import FormNewcomment from "./components/FormNewcomment"
 
+
 /*using class to learn how to use State in ReactJs instead using hooks with functions*/
-class App extends React.Component {
+const App = () => {
+  
+  const [Listcomment, setListComment] = useState([])
+  const [Name, setName] = useState()
+  const [Email, setEmail] = useState()
+  const [Message, setMessage] = useState()
+  useEffect(() =>{
+    setListComment(JSON.parse(localStorage.getItem("comments")))
+  }, [])
 
-  state = {
-    comments: [
-      
-      
-    ],
-    form: {
-      name:"",
-      email:"",
-      message:"",
+  const Addcomment = (event) =>{
+    event.preventDefault();
+    const NewAddcomment = {
+      name: Name,
+      email: Email,
+      message: Message
 
-    }
-  };
-
-
-
-addComment = (event) => {
-  event.preventDefault();
-  alert('adicionando comentário')
-  const newComment = {
-    name:this.state.form.name,
-    email: this.state.form.email,
-    date: new Date(),
-    message: this.state.form.message,
-
+    };
+    setListComment([...Listcomment, NewAddcomment ]);
+    localStorage.setItem("comments", JSON.stringify([...Listcomment, NewAddcomment ])  )
+    
+  
+  }
+  const onChangeName = (event) =>{
+    setName(event.target.value)
+    
+  }
+  const onChangeEmail = (event) =>{
+    setEmail(event.target.value)
+    console.log(event.target.value)
+  }
+  const onChangeMessage = (event) =>{
+    setMessage(event.target.value)
+    console.log(event.target.value)
   }
 
-  this.setState({
-    comments: [...this.state.comments, newComment],
-    form:{
-      name:"",
-      email:"",
-      message:"",
-    }
-  })
-}
-
-DeleteComment = (comment) =>{
-  console.log(comment)
-  const newFilteredList = this.state.comments.filter(filteredComment => filteredComment !== comment)
-  this.setState({
-    comments: newFilteredList
-  })
-  console.log(newFilteredList)
-}
-
-onChangeEmail = (event) => {
-  
-  const emailChanged =event.target.value;
-  
-    this.setState({
-      form:{
-        ...this.state.form, 
-        email:emailChanged
-      }
+  const DeleteComment = (comment) => {
+    const NewListFiltered = Listcomment.filter(FilteredComment => FilteredComment !== comment)
+    setListComment(NewListFiltered)
+    localStorage.setItem("comments", JSON.stringify(NewListFiltered)  )
       
-    })
+  }
   
+
+
+  return(
+    <div className="App flex flex-col justify-center items-center p-4">
+      <h1 className='text-primary-color mb-12'>Comment App!</h1>
+      {Listcomment.map((comment, index) => 
+      
+      <Comment
+      key = {index}
+      name= {comment.name}
+      email = {comment.email}
+      date = {new Date()}
+      message = {comment.message}
+      onDeleteComment = {() => DeleteComment(comment)}
+      />
+      
+      )}
+      <FormNewcomment
+      onChangeName = {onChangeName}
+      onChangeEmail = {onChangeEmail}
+      onChangeMessage = {onChangeMessage}
+      onSubmit = {Addcomment}
+
+      />
+    </div>
+  )
+
+
   
-}
 
-onChangeMessage = (event) => {
-  
-  const messageChanged =event.target.value;
-  
-  this.setState({
-    form:{
-      ...this.state.form, 
-    message: messageChanged,
-    }
-    
-  })
-}
-
-onChangeName = (event) => {
-  
-  const nameChanged =event.target.value;
-  this.setState({
-    form: {
-      ...this.state.form,
-      name: nameChanged,
-    }
-  })
-}
-
-
-  render(){
-
-    return (
-      <div className="App flex flex-col justify-center items-center mt-10 gap-10">
-        <h1 className="text-primary-color text-2xl font-light">Comments App!</h1>
-        
-        {this.state.comments.map((comment, index) =>{
-          return (
-            <Comment 
-              key = {index}
-              name= {comment.name}
-              email={comment.email}
-              date={comment.date}
-              message ={comment.message}
-              onDeleteComment = {() => {this.DeleteComment(comment)}}
-            />
-          )
-        
-        }) }
-        <FormNewcomment
-        onChangeName = {this.onChangeName}
-        onChangeEmail = {this.onChangeEmail}
-        onChangeMessage = {this.onChangeMessage}
-
-        onSubmit = {this.addComment}
-        
-
-        />
-
-        
-        
-  
-      </div>
-    );
-  };    
 };
 
 export default App;
+
