@@ -52,7 +52,7 @@ const App = () => {
 
   return(
     <div className="App flex flex-col justify-center items-center p-4">
-      <h1 className='text-primary-color mb-12'>Comment App!</h1>
+      <h1 className='text-primary-color text-xl mb-12'>Comment App!</h1>
       {Listcomment.map((comment, index) => 
       
       <Comment
