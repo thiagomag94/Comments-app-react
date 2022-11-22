@@ -12,6 +12,8 @@ const App = () => {
   const [Email, setEmail] = useState()
   const [Message, setMessage] = useState()
   
+
+  
   useEffect(() =>{
     const LoadDataStorage = localStorage.getItem("comments")
     if (LoadDataStorage  != null )
@@ -23,10 +25,16 @@ const App = () => {
 
   const Addcomment = (event) =>{
     event.preventDefault();
+    const date = new Date()
+    const hour = date.getHours();
+    const minutes = date.getMinutes();
     const NewAddcomment = {
       name: Name,
       email: Email,
-      message: Message
+      date: date,
+      message: Message,
+      hour: hour,
+      minutes: minutes,
 
     };
     setListComment([...Listcomment, NewAddcomment ]);
@@ -65,8 +73,11 @@ const App = () => {
       key = {index}
       name= {comment.name}
       email = {comment.email}
-      date = {new Date()}
+      date = {comment.date}
       message = {comment.message}
+      hour = {comment.hour}
+      minutes = {comment.minutes}
+      
       onDeleteComment = {() => DeleteComment(comment)}
       />
       
