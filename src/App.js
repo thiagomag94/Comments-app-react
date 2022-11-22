@@ -1,4 +1,3 @@
-import { stringify } from 'postcss';
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import Comment from './components/Comment/Comment';
