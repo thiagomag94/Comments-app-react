@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import Comment from "./components/Comment"
-import FormNewcomment from "./components/FormNewcomment"
+import Comment from './components/Comment/Comment';
+import FormNewcomment from './components/FormNewcomment/FormNewcomment'
 
 
 /*using class to learn how to use State in ReactJs instead using hooks with functions*/
