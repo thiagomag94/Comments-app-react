@@ -67,6 +67,7 @@ const App = () => {
   return(
     <div className="App flex flex-col justify-center items-center p-4">
       <h1 className='text-primary-color text-xl mb-12'>Comment App!</h1>
+      <h1 className='text-slate-200  text-md mb-12'>Leave your comment below and share your thoughts with people around the world!</h1>
       {Listcomment.map((comment, index) => 
       
       <Comment
