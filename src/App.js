@@ -1,3 +1,4 @@
+import { stringify } from 'postcss';
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import Comment from './components/Comment/Comment';
@@ -11,8 +12,14 @@ const App = () => {
   const [Name, setName] = useState()
   const [Email, setEmail] = useState()
   const [Message, setMessage] = useState()
+  
   useEffect(() =>{
-    setListComment(JSON.parse(localStorage.getItem("comments")))
+    const LoadDataStorage = localStorage.getItem("comments")
+    if (LoadDataStorage  != null )
+    {
+      setListComment(JSON.parse(LoadDataStorage))
+    }
+    
   }, [])
 
   const Addcomment = (event) =>{
