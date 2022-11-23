@@ -16,16 +16,21 @@ const App = () => {
   
   useEffect(() =>{
     const LoadDataStorage = localStorage.getItem("comments")
+
     if (LoadDataStorage  != null )
     {
       setListComment(JSON.parse(LoadDataStorage))
+      console.log('ok, funcionou')
+    }
+    else {
+      console.log('não funcionou')
     }
     
   }, [])
 
   const Addcomment = (event) =>{
     event.preventDefault();
-    const date = new Date()
+    const date = new Date();
     const hour = date.getHours();
     const minutes = date.getMinutes();
     const NewAddcomment = {
@@ -58,7 +63,7 @@ const App = () => {
   const DeleteComment = (comment) => {
     const NewListFiltered = Listcomment.filter(FilteredComment => FilteredComment !== comment)
     setListComment(NewListFiltered)
-    localStorage.setItem("comments", JSON.stringify(NewListFiltered)  )
+    localStorage.setItem("comments", JSON.stringify(NewListFiltered))
       
   }
   
