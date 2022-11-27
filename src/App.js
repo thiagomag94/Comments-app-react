@@ -33,17 +33,20 @@ const App = () => {
     const date = new Date();
     const hour = date.getHours();
     const minutes = date.getMinutes();
+    const datestring = date.toLocaleDateString()
+    console.log(datestring)
+    console.log(typeof(datestring))
     const NewAddcomment = {
       name: Name,
       email: Email,
-      date: date,
+      date: datestring,
       message: Message,
       hour: hour,
       minutes: minutes,
 
     };
     setListComment([...Listcomment, NewAddcomment ]);
-    localStorage.setItem("comments", JSON.stringify([...Listcomment, NewAddcomment ])  )
+    localStorage.setItem("comments", JSON.stringify([...Listcomment, NewAddcomment ]))
     
   
   }
