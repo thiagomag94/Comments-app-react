@@ -11,7 +11,7 @@ const App = () => {
   const [Name, setName] = useState()
   const [Email, setEmail] = useState()
   const [Message, setMessage] = useState()
-  
+  const NewArrayInverted = Listcomment.slice().reverse()
 
   
   useEffect(() =>{
@@ -28,14 +28,14 @@ const App = () => {
     
   }, [])
 
+
+
   const Addcomment = (event) =>{
     event.preventDefault();
     const date = new Date();
     const hour = date.getHours();
     const minutes = date.getMinutes();
     const datestring = date.toLocaleDateString()
-    console.log(datestring)
-    console.log(typeof(datestring))
     const NewAddcomment = {
       name: Name,
       email: Email,
@@ -47,20 +47,20 @@ const App = () => {
     };
     setListComment([...Listcomment, NewAddcomment ]);
     localStorage.setItem("comments", JSON.stringify([...Listcomment, NewAddcomment ]))
-    
-  
   }
+
+
   const onChangeName = (event) =>{
     setName(event.target.value)
     
   }
   const onChangeEmail = (event) =>{
     setEmail(event.target.value)
-    console.log(event.target.value)
+    
   }
   const onChangeMessage = (event) =>{
     setMessage(event.target.value)
-    console.log(event.target.value)
+    
   }
 
   const DeleteComment = (comment) => {
@@ -76,7 +76,7 @@ const App = () => {
     <div className="App flex flex-col justify-center items-center p-4">
       <h1 className='text-primary-color text-xl mb-12'>Comment App!</h1>
       <h1 className='text-slate-200  text-md mb-12'>Leave your comment below and share your thoughts with people around the world!</h1>
-      {Listcomment.map((comment, index) => 
+      {NewArrayInverted.map((comment, index) => 
       
       <Comment
       key = {index}
