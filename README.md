@@ -94,6 +94,8 @@ I chose netlify to host this web application
   ## Authors
 
   * **Thiago Borges Miranda** 
+  https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white @thiagoborgesgtr
+  https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white  https://www.linkedin.com/in/thiago-borges-miranda-986446207/
 
   Please follow github and join us!
  
