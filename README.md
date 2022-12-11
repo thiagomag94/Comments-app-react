@@ -1,5 +1,6 @@
 
-![logo](https://user-images.githubusercontent.com/20890806/206934385-1a37099c-881e-4942-aa2e-dc53f999ee2e.PNG)
+![logo](https://user-images.githubusercontent.com/20890806/206934464-9e9790c2-e6ed-484a-b03e-97c82e820f4a.PNG)
+
 
 # Comments App
 
