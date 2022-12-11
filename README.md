@@ -37,7 +37,7 @@ Requirements: Node.js/npm
 
 # clone repository
 
-git clone 
+git clone https://github.com/thiagomag94/Comments-app-react.git
 
 # enter the project folder
 
@@ -96,13 +96,16 @@ I chose netlify to host this web application
 
   * **Thiago Borges Miranda** 
  
+ 
+ 
 ![Instagram](https://camo.githubusercontent.com/7a705494c370a8412797521701153d2873fb39109edf80afc408efd0927ae2d0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f496e7374616772616d2d2532334534343035462e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d496e7374616772616d266c6f676f436f6c6f723d7768697465)                                           
 @thiagoborgesgtr
 
 ![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)  
 [My LinkedIn](https://www.linkedin.com/in/thiago-borges-miranda-986446207/)
 
-  Please follow github and join us!
+
+Please follow github and join us!
  
 
 
