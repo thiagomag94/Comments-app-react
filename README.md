@@ -2,9 +2,7 @@
 ![logo](https://user-images.githubusercontent.com/20890806/206934464-9e9790c2-e6ed-484a-b03e-97c82e820f4a.PNG)
 
 
-# Comments App
-
-##### Hello, everyone!
+#### Hello, everyone!
 
 This is my first web app using React Js and I'm learning a lot by doing it. I went through all that basics stuff like 'How to criate a React component', 'How to work with forms', 'How to use State'. It has been challenging, but I'll keep working on it.
 
