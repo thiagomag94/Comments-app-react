@@ -104,7 +104,7 @@ I chose netlify to host this web application
 @thiagoborgesgtr
 
 ![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)  
-[My LinkedIn](https://www.linkedin.com/in/thiago-borges-miranda-986446207/)
+[My LinkedIn](https://www.linkedin.com/in/thiagoborgesdev/)
 
 
 Please follow github and join us!
